@@ -3,6 +3,10 @@ python-google-places
 
 .. _introduction:
 
+Python 3 version of slimkrazy's python-google-places
+
+https://github.com/slimkrazy/python-google-places
+
 **python-google-places** provides a simple wrapper around the experimental
 Google Places API.
 
@@ -10,16 +14,7 @@ Google Places API.
 Installation
 -----------------
 
-.. _installation:
-
-pip install https://github.com/slimkrazy/python-google-places/zipball/master
-
-OR
-
-pip install python-google-places
-
-Download source and then:
-python setup.py install
+No package has been created for this, but you can clone it and include it into your projects. 
 
 
 Prerequisites
@@ -50,24 +45,24 @@ Code is easier to understand than words, so let us dive right in ::
             radius=20000, types=[types.TYPE_FOOD])
 
     if query_result.has_attributions:
-        print query_result.html_attributions
+        print(query_result.html_attributions)
 
 
     for place in query_result.places:
         # Returned places from a query are place summaries.
-        print place.name
-        print place.geo_location
-        print place.reference
+        print(place.name)
+        print(place.geo_location)
+        print(place.reference)
 
         # The following method has to make a further API call.
         place.get_details()
         # Referencing any of the attributes below, prior to making a call to
         # get_details() will raise a googleplaces.GooglePlacesAttributeError.
-        print place.details # A dict matching the JSON response from Google.
-        print place.local_phone_number
-        print place.international_phone_number
-        print place.website
-        print place.url
+        print(place.details) # A dict matching the JSON response from Google.
+        print(place.local_phone_number)
+        print(place.international_phone_number)
+        print(place.website)
+        print(place.url)
 
         # Getting place photos
 
@@ -91,14 +86,14 @@ Code is easier to understand than words, so let us dive right in ::
                 accuracy=100,
                 types=types.TYPE_HOME_GOODS_STORE,
                 language=lang.ENGLISH_GREAT_BRITAIN)
-        print added_place.reference # The Google Places reference - Important!
-        print added_place.id
+        print(added_place.reference) # The Google Places reference - Important!
+        print(added_place.id)
 
         # Delete the place that you've just added.
         google_places.delete_place(added_place.reference)
     except GooglePlacesError as error_detail:
         # You've passed in parameter values that the Places API doesn't like..
-        print error_detail
+        print(error_detail)
 
 
 Reference
